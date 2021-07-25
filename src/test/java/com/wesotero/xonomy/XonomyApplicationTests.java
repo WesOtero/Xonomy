@@ -1,0 +1,13 @@
+package com.wesotero.xonomy;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class XonomyApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
