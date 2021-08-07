@@ -17,7 +17,7 @@ public class Specimen {
 	private String location;
 	private String description;
 	private String notes;
-	private String image_url;
+	private String imageUrl;
 	
 	public Long getId() {
 		return id;
@@ -49,11 +49,11 @@ public class Specimen {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public String getImage_url() {
-		return image_url;
+	public String getImageUrl() {
+		return imageUrl;
 	}
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 	
