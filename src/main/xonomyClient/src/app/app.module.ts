@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpecimenService } from './service/specimen.service';
 import { SpecimenListComponent } from './specimen-list/specimen-list.component';
+import { SpecimenFormComponent } from './specimen-form/specimen-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpecimenListComponent,
+    SpecimenFormComponent,
   ],
   imports: [
     BrowserModule,

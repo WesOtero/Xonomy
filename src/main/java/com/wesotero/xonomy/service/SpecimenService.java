@@ -20,23 +20,32 @@ public class SpecimenService {
 		this.specimenRepository = specimenRepository;
 	}
 	
+	// CREATE
 	public Specimen addSpecimen(Specimen specimen) {
 		return specimenRepository.save(specimen);
 	}
 	
-	public Specimen findSpecimenById(Long id) {
-		return specimenRepository.findById(id).orElseThrow(() -> new SpecimenNotFoundException ("Specimen Not Found"));
-	}
-	
+	// READ
 	public List<Specimen> getAllSpecimens() {
 		return specimenRepository.findAll();
 	}
 	
+	public Specimen findSpecimenById(Long id) {
+		Specimen specimen = specimenRepository.findById(id).orElseThrow(() -> new SpecimenNotFoundException ("Specimen Not Found"));
+		return specimenRepository.findById(id).orElseThrow(() -> new SpecimenNotFoundException ("Specimen Not Found"));
+	}
+	
+	// UPDATE
 	public Specimen updateSpecimen(Specimen specimen) {
 		return specimenRepository.save(specimen);
 	}
 	
-	public void deleteSpecimen(Long id) {
+	// DELETE
+	public void deleteSpecimen(Specimen specimen) {
+		specimenRepository.delete(specimen);
+	}
+	
+	public void deleteSpecimenById(Long id) {
 		specimenRepository.deleteById(id);
 	}
 	

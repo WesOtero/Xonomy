@@ -1,0 +1,51 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #specimenForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="specimen.name" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter specimen name"
+            required #name="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" [(ngModel)]="specimen.location" 
+              class="form-control" 
+              id="location" 
+              name="location" 
+              placeholder="Enter specimen location"
+              required #location="ngModel">
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text-area" [(ngModel)]="specimen.description" 
+              class="form-control" 
+              id="description" 
+              name="description" 
+              placeholder="Enter specimen description"
+              required #location="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea [(ngModel)]="specimen.notes" 
+              class="form-control" 
+              id="notes" 
+              name="notes" 
+              placeholder="Enter specimen notes"
+              required #location="ngModel">
+            </textarea>
+          </div>
+          
+          <div class="form-group">
+          <button type="submit" [disabled]="!specimenForm.form.valid" class="btn btn-primary">Submit</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>

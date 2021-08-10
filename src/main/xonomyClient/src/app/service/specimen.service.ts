@@ -9,11 +9,15 @@ import { Specimen } from '../model/specimen';
 })
 export class SpecimenService {
   
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = environment.apiBaseUrl + "/specimen";
 
   constructor(private http: HttpClient) {}
 
   public getSpecimens(): Observable<Specimen[]> {
-    return this.http.get<Specimen[]>(`${this.apiServerUrl}/specimen/all`);
+    return this.http.get<Specimen[]>(`${this.apiServerUrl}/all`);
   }
+
+  public saveSpecimen(specimen: Specimen) {
+    return this.http.post<Specimen>(`${this.apiServerUrl}/add`, specimen)
+  } 
 }

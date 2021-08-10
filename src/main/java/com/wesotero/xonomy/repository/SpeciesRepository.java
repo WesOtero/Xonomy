@@ -3,9 +3,9 @@ package com.wesotero.xonomy.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.wesotero.xonomy.model.Specimen;
+import com.wesotero.xonomy.model.Species;
 
 @Repository
-public interface SpecimenRepository extends JpaRepository<Specimen, Long>{
-	
+public interface SpeciesRepository extends JpaRepository<Species, Long> {
+
 }

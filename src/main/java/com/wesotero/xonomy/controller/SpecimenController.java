@@ -17,8 +17,8 @@ import com.wesotero.xonomy.model.Specimen;
 import com.wesotero.xonomy.service.SpecimenService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/specimen")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class SpecimenController {
 
 	private final SpecimenService specimenService;
@@ -28,12 +28,14 @@ public class SpecimenController {
 		this.specimenService = specimenService;
 	}
 
+	//CREATE
 	@PostMapping("/add")
 	public ResponseEntity<Specimen> addSpecimen(@RequestBody Specimen specimen) {
 		specimenService.addSpecimen(specimen);
 		return new ResponseEntity<Specimen>(specimen, HttpStatus.CREATED);
 	}
 	
+	// READ
 	@GetMapping("/all")
 	public ResponseEntity<List<Specimen>> getAllSpecimens() {
 		List<Specimen> specimenList = specimenService.getAllSpecimens();
@@ -44,17 +46,19 @@ public class SpecimenController {
 	public ResponseEntity<Specimen> getSpecimenById(@PathVariable("id") Long id) {
 		Specimen specimen = specimenService.findSpecimenById(id);
 		return new ResponseEntity<>(specimen, HttpStatus.OK);
-	}
+	} 
 	
+	// UPDATE
 	@PutMapping("/update")
 	public ResponseEntity<Specimen> updateSpecimen(Specimen specimen) {
 		specimenService.updateSpecimen(specimen);
 		return new ResponseEntity<>(specimen, HttpStatus.OK);
 	}
 	
+	// DELETE
 	@PutMapping("/delete/{id}")
 	public ResponseEntity<?> deleteSpecimen(@PathVariable("id") Long id) {
-		specimenService.deleteSpecimen(id);
+		specimenService.deleteSpecimenById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
