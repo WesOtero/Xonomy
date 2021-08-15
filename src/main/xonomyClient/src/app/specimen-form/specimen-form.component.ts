@@ -1,6 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Species } from '../model/species';
 import { Specimen } from '../model/specimen';
+import { SpeciesService } from '../service/species.service';
 import { SpecimenService } from '../service/specimen.service';
 
 @Component({
@@ -11,14 +14,16 @@ import { SpecimenService } from '../service/specimen.service';
 export class SpecimenFormComponent implements OnInit {
 
   public specimen : Specimen;
+  public speciesList: Species[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private specimenService: SpecimenService) {
-    
+    private specimenService: SpecimenService,
+    private speciesService: SpeciesService)
+    {
       this.specimen = new Specimen();
-   }
+    }
 
 
   onSubmit() {
@@ -32,7 +37,13 @@ export class SpecimenFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.speciesService.getSpecies().subscribe(response => {
+      this.speciesList = response;
+      console.log(this.speciesList);
+    }),
+    (error: HttpErrorResponse) => {
+      alert(error.message)
+    }
   }
 
 }

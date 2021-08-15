@@ -18,6 +18,6 @@ export class SpecimenService {
   }
 
   public saveSpecimen(specimen: Specimen) {
-    return this.http.post<Specimen>(`${this.apiServerUrl}/add`, specimen)
+    return this.http.post<Specimen>(`${this.apiServerUrl}/add`, specimen);
   } 
 }

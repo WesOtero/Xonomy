@@ -1,0 +1,31 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #speciesForm="ngForm">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="species.name" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter species name"
+            required #name="ngModel">
+        </div>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text-area" [(ngModel)]="species.description" 
+              class="form-control" 
+              id="description" 
+              name="description" 
+              placeholder="Enter species description"
+              required #location="ngModel">
+          </div>
+          
+          <div class="form-group">
+          <button type="submit" [disabled]="!speciesForm.form.valid" class="btn btn-primary">Submit</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>

@@ -32,7 +32,6 @@ public class SpeciesService {
 	}
 	
 	public Species findSpeciesById(Long id) {
-		Species species = speciesRepository.findById(id).orElseThrow(() -> new SpeciesNotFoundException("Speices Not Found"));
 		return speciesRepository.findById(id).orElseThrow(() -> new SpeciesNotFoundException("Speices Not Found"));
 	}
 	

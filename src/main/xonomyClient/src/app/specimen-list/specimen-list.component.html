@@ -7,7 +7,7 @@
             <th scope="col">ID#</th>
             <th scope="col">Name</th>
             <th scope="col">Location</th>
-            <th scope="col">Description</th>
+            <th scope="col">Species</th>
             <th scope="col">Notes</th>
           </tr>
         </thead>
@@ -16,7 +16,7 @@
             <td>{{ specimen.id }}</td>
             <td>{{ specimen.name }}</td>
             <td>{{ specimen.location }}</td>
-            <td>{{ specimen.description }}</td>
+            <td>{{ specimen.species.name }}</td>
             <td>{{ specimen.notes }}</td>
           </tr>
         </tbody>

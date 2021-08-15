@@ -1,8 +1,10 @@
+import { Species } from "./species";
+
 export class Specimen {
     id: string = "";
     name: string = "";
+    sex: string = "";
     location: string = "";
-    description: string = "";
-    notes: string = "";
-    imageUrl: string = "";
+    notes: String = "";
+    species: Species = new Species();
 }

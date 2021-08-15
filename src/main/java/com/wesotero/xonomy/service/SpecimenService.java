@@ -31,7 +31,6 @@ public class SpecimenService {
 	}
 	
 	public Specimen findSpecimenById(Long id) {
-		Specimen specimen = specimenRepository.findById(id).orElseThrow(() -> new SpecimenNotFoundException ("Specimen Not Found"));
 		return specimenRepository.findById(id).orElseThrow(() -> new SpecimenNotFoundException ("Specimen Not Found"));
 	}
 	

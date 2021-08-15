@@ -1,0 +1,21 @@
+<div class="card my-5">
+    <div class="card-body">
+      <a routerLink="/addspecies" class="btn btn-primary">Add Species</a>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let species of speciesList">
+            <td>{{ species.id }}</td>
+            <td>{{ species.name }}</td>
+            <td>{{ species.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
