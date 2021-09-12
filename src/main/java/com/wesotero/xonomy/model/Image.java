@@ -16,7 +16,7 @@ public class Image {
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	private String name;
-	private String path;
+	private String directory;
 	
 	public Long getId() {
 		return id;
@@ -31,10 +31,10 @@ public class Image {
 		this.name = name;
 	}
 	public String getPath() {
-		return path;
+		return directory;
 	}
-	public void setPath(String path) {
-		this.path = path;
+	public void setPath(String directory) {
+		this.directory = directory;
 	}
 	
 }

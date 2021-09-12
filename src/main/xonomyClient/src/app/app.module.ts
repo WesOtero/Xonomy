@@ -13,6 +13,7 @@ import { SpeciesListComponent } from './species-list/species-list.component';
 import { SpeciesService } from './service/species.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ImageUploadService } from './service/image-upload.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [SpecimenService, SpeciesService],
+  providers: [SpecimenService, SpeciesService, ImageUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

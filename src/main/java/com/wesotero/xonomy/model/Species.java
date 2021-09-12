@@ -16,6 +16,15 @@ public class Species {
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	private String name;
+	private String binomialName;
+	private String genus;
+	private String subfamily;
+	private String family;
+	private String suborder;
+	private String order;
+	private String clazz;
+	private String phylum;
+	private String kingdom;
 	private String description;
 
 	public Long getId() {
@@ -41,5 +50,79 @@ public class Species {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getBinomialName() {
+		return binomialName;
+	}
+
+	public void setBinomialName(String binomialName) {
+		this.binomialName = binomialName;
+	}
+
+	public String getGenus() {
+		return genus;
+	}
+
+	public void setGenus(String genus) {
+		this.genus = genus;
+	}
+
+	public String getSubfamily() {
+		return subfamily;
+	}
+
+	public void setSubfamily(String subfamily) {
+		this.subfamily = subfamily;
+	}
+
+	public String getFamily() {
+		return family;
+	}
+
+	public void setFamily(String family) {
+		this.family = family;
+	}
+
+	public String getSuborder() {
+		return suborder;
+	}
+
+	public void setSuborder(String suborder) {
+		this.suborder = suborder;
+	}
+
+	public String getOrder() {
+		return order;
+	}
+
+	public void setOrder(String order) {
+		this.order = order;
+	}
+
+	public String getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
+
+	public String getPhylum() {
+		return phylum;
+	}
+
+	public void setPhylum(String phylum) {
+		this.phylum = phylum;
+	}
+
+	public String getKingdom() {
+		return kingdom;
+	}
+
+	public void setKingdom(String kingdom) {
+		this.kingdom = kingdom;
+	}
+	
+	
 
 }

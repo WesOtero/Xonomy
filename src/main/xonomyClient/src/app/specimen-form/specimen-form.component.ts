@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Species } from '../model/species';
 import { Specimen } from '../model/specimen';
+import { ImageUploadService } from '../service/image-upload.service';
 import { SpeciesService } from '../service/species.service';
 import { SpecimenService } from '../service/specimen.service';
 
@@ -25,6 +26,7 @@ export class SpecimenFormComponent implements OnInit {
     private router: Router,
     private specimenService: SpecimenService,
     private speciesService: SpeciesService,
+    private imageUploadService: ImageUploadService,
     private http: HttpClient
   ) {
     this.specimen = new Specimen();
@@ -51,22 +53,14 @@ export class SpecimenFormComponent implements OnInit {
   }
 
   uploadImage() {
-    var id: number = parseInt(this.specimen.species.id);
-    var index: number = this.speciesList.findIndex(i => parseInt(i.id) == id);
-    var speciesName = this.speciesList[index].name;
-    const fd = new FormData();
+    const id: number = parseInt(this.specimen.species.id);
+    const index: number = this.speciesList.findIndex(i => parseInt(i.id) == id);
+    const speciesName: string = this.speciesList[index].name;
+    const specimenName: string = this.specimen.name;
     if (this.selectedFile != null) {
       this.specimen.setImagePath(speciesName);
-      // @ts-ignore: Object is possibly 'null'.
-      fd.append('file', this.selectedFile, this.selectedFile.name);
-      fd.append('species', speciesName);
-      fd.append('specimenName', this.specimen.name);
-      this.http.post(`${this.apiServerUrl}/upload`, fd, { headers: new HttpHeaders() })
-        .subscribe(response => {
-          console.log("Uploaded");
-        })
+      this.imageUploadService.uploadImage(this.selectedFile, speciesName, specimenName);
     }
-
   }
 
   ngOnInit(): void {

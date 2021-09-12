@@ -1,31 +1,84 @@
 <div class="card my-5">
-    <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #speciesForm="ngForm">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #speciesForm="ngForm">
 
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" [(ngModel)]="species.name" 
-            class="form-control" 
-            id="name" 
-            name="name" 
-            placeholder="Enter species name"
-            required #name="ngModel">
-        </div>
-          
-          <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text-area" [(ngModel)]="species.description" 
-              class="form-control" 
-              id="description" 
-              name="description" 
-              placeholder="Enter species description"
-              required #location="ngModel">
-          </div>
-          
-          <div class="form-group">
-          <button type="submit" [disabled]="!speciesForm.form.valid" class="btn btn-primary">Submit</button>
-        </div>
-        
-      </form>
-    </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="species.name" class="form-control" id="name" name="name"
+          placeholder="Enter species name" required #name="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="binomialName">Binomial Name</label>
+        <input type="text-area" [(ngModel)]="species.binomialName" class="form-control" id="binomialName"
+          name="binomialName" placeholder="Binomial nomenclature (two latin words)" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="genus">Genus</label>
+        <input type="text-area" [(ngModel)]="species.genus" class="form-control" id="genus" name="genus"
+          placeholder="Enter species genus" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="subfamily">Subfamily</label>
+        <input type="text-area" [(ngModel)]="species.subfamily" class="form-control" id="subfamily" name="subfamily"
+          placeholder="Enter species subfamily" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="family">Family</label>
+        <input type="text-area" [(ngModel)]="species.family" class="form-control" id="family" name="family"
+          placeholder="Enter species family" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="suborder">Suborder</label>
+        <input type="text-area" [(ngModel)]="species.suborder" class="form-control" id="suborder" name="suborder"
+          placeholder="Enter species suborder" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="order">Order</label>
+        <input type="text-area" [(ngModel)]="species.order" class="form-control" id="order" name="order"
+          placeholder="Enter species order" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="clazz">Class</label>
+        <input type="text-area" [(ngModel)]="species.clazz" class="form-control" id="clazz" name="clazz"
+          placeholder="Enter species class" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="phylum">Phylum</label>
+        <input type="text-area" [(ngModel)]="species.phylum" class="form-control" id="phylum" name="phylum"
+          placeholder="Enter species phylum" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="kingdom">Kingdom</label>
+        <select [(ngModel)]="species.kingdom" class="form-control" id="sex" name="sex" required #sex="ngModel">
+          <option value="" disabled selected>Select</option>
+          <option value="Animalia">Animalia (Animals)</option>
+          <option value="Archaebacteria">Archaebacteria (Archaea)</option>
+          <option value="Eubacteria">Eubacteria (Bacteria)</option>
+          <option value="Fungi"> Fungi (Fungus)</option>
+          <option value="Plantae">Plantae (Plants)</option>
+          <option value="Protista">Protista</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text-area" [(ngModel)]="species.description" class="form-control" id="description"
+          name="description" placeholder="Enter species description" required #location="ngModel">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" [disabled]="!speciesForm.form.valid" class="btn btn-primary">Submit</button>
+      </div>
+
+    </form>
   </div>
+</div>

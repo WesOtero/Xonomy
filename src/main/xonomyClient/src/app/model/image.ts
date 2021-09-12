@@ -1,5 +1,5 @@
 export class Image {
     id: string = "";
     name: string = "";
-    path: string = "";
+    directory: string = "";
 }

@@ -12,7 +12,7 @@ export class Specimen {
     image: Image = new Image();
 
     setImagePath(speciesName: string) {
-        this.image.path = `${speciesName}`;
+        this.image.directory = `${speciesName}`;
         this.image.name = `${this.name}.jpg`;
     }
 }

@@ -6,6 +6,15 @@
           <tr>
             <th scope="col">ID#</th>
             <th scope="col">Name</th>
+            <th scope="col">Binomial Name</th>
+            <th scope="col">Genus</th>
+            <th scope="col">Subfamily</th>
+            <th scope="col">Family</th>
+            <th scope="col">Suborder</th>
+            <th scope="col">Order</th>
+            <th scope="col">Class</th>
+            <th scope="col">Phylum</th>
+            <th scope="col">Kingdom</th>
             <th scope="col">Description</th>
           </tr>
         </thead>
@@ -13,6 +22,15 @@
           <tr *ngFor="let species of speciesList">
             <td>{{ species.id }}</td>
             <td>{{ species.name }}</td>
+            <td>{{ species.binomialName }}</td>
+            <td>{{ species.genus }}</td>
+            <td>{{ species.subfamily }}</td>
+            <td>{{ species.family }}</td>
+            <td>{{ species.suborder }}</td>
+            <td>{{ species.order }}</td>
+            <td>{{ species.clazz }}</td>
+            <td>{{ species.phylum }}</td>
+            <td>{{ species.kingdom }}</td>
             <td>{{ species.description }}</td>
           </tr>
         </tbody>
