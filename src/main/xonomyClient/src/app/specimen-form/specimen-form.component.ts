@@ -1,6 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Species } from '../model/species';
 import { Specimen } from '../model/specimen';
 import { SpeciesService } from '../service/species.service';
@@ -13,20 +14,25 @@ import { SpecimenService } from '../service/specimen.service';
 })
 export class SpecimenFormComponent implements OnInit {
 
-  public specimen : Specimen;
-  public speciesList: Species[] | undefined;
+  public specimen: Specimen;
+  public speciesList!: Species[];
+  private apiServerUrl = environment.apiBaseUrl + "/file";
+
+  selectedFile = null;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private specimenService: SpecimenService,
-    private speciesService: SpeciesService)
-    {
-      this.specimen = new Specimen();
-    }
+    private speciesService: SpeciesService,
+    private http: HttpClient
+  ) {
+    this.specimen = new Specimen();
+  }
 
 
   onSubmit() {
+    this.uploadImage();
     this.specimenService.saveSpecimen(this.specimen).subscribe(result => {
       this.gotoSpecimenList();
     })
@@ -36,14 +42,41 @@ export class SpecimenFormComponent implements OnInit {
     this.router.navigate(['/specimens']);
   }
 
+  onFileSelected(event: Event) {
+    console.log(event);
+    // @ts-ignore: Object is possibly 'null'.
+    this.selectedFile = event.target.files[0];
+    // @ts-ignore: Object is possibly 'null'.
+    this.specimen.image.name = event.target.files[0].name;
+  }
+
+  uploadImage() {
+    var id: number = parseInt(this.specimen.species.id);
+    var index: number = this.speciesList.findIndex(i => parseInt(i.id) == id);
+    var speciesName = this.speciesList[index].name;
+    const fd = new FormData();
+    if (this.selectedFile != null) {
+      this.specimen.setImagePath(speciesName);
+      // @ts-ignore: Object is possibly 'null'.
+      fd.append('file', this.selectedFile, this.selectedFile.name);
+      fd.append('species', speciesName);
+      fd.append('specimenName', this.specimen.name);
+      this.http.post(`${this.apiServerUrl}/upload`, fd, { headers: new HttpHeaders() })
+        .subscribe(response => {
+          console.log("Uploaded");
+        })
+    }
+
+  }
+
   ngOnInit(): void {
     this.speciesService.getSpecies().subscribe(response => {
       this.speciesList = response;
       console.log(this.speciesList);
     }),
-    (error: HttpErrorResponse) => {
-      alert(error.message)
-    }
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
   }
 
 }

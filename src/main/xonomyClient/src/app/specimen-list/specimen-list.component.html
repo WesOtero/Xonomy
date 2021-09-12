@@ -6,18 +6,25 @@
           <tr>
             <th scope="col">ID#</th>
             <th scope="col">Name</th>
+            <th scope="col">Sex</th>
             <th scope="col">Location</th>
             <th scope="col">Species</th>
             <th scope="col">Notes</th>
+            <th scope="col">Entry Date</th>
+            <th scope="col">Menu</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let specimen of specimens">
             <td>{{ specimen.id }}</td>
             <td>{{ specimen.name }}</td>
+            <td>{{ specimen.sex }}</td>
             <td>{{ specimen.location }}</td>
             <td>{{ specimen.species.name }}</td>
             <td>{{ specimen.notes }}</td>
+            <td>{{ specimen.timestamp | date:'medium' }}</td>
+            <td>     
+            </td>
           </tr>
         </tbody>
       </table>
