@@ -13,12 +13,7 @@ import com.wesotero.xonomy.repository.SpeciesRepository;
 public class SpeciesService {
 	
 	@Autowired
-	private final SpeciesRepository speciesRepository;
-
-	public SpeciesService(SpeciesRepository speciesRepository) {
-		super();
-		this.speciesRepository = speciesRepository;
-	}
+	private SpeciesRepository speciesRepository;
 	
 	// CREATE
 	public Species addSpecies(Species species) {

@@ -1,32 +1,47 @@
 <div class="card my-5">
-    <div class="card-body">
-      <a routerLink="/addspecimen" class="btn btn-primary">Add Specimen</a>
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ID#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Sex</th>
-            <th scope="col">Location</th>
-            <th scope="col">Species</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Entry Date</th>
-            <th scope="col">Menu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let specimen of specimens">
-            <td>{{ specimen.id }}</td>
-            <td>{{ specimen.name }}</td>
-            <td>{{ specimen.sex }}</td>
-            <td>{{ specimen.location }}</td>
-            <td>{{ specimen.species.name }}</td>
-            <td>{{ specimen.notes }}</td>
-            <td>{{ specimen.timestamp | date:'medium' }}</td>
-            <td>     
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="card-body">
+    <a routerLink="/addspecimen" class="btn btn-primary">Add Specimen</a>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Sex</th>
+          <th scope="col">Location</th>
+          <th scope="col">Species</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Entry Date</th>
+          <th scope="col">Menu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let specimen of specimens">
+          <td>{{ specimen.id }}</td>
+          <td>{{ specimen.name }}</td>
+          <td>{{ specimen.sex }}</td>
+          <td>{{ specimen.location }}</td>
+          <td>{{ specimen.species.name }}</td>
+          <td>{{ specimen.notes }}</td>
+          <td>{{ specimen.timestamp | date:'medium' }}</td>
+          <td>
+            <div class="btn-group" mdbDropdown>
+              <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
+                mdbWavesEffect>
+                Basic dropdown
+              </button>
+            
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="divider dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

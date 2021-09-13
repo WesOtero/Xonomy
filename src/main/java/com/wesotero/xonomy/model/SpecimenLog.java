@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "log")
-public class Log {
+@Table(name = "specimen_log")
+public class SpecimenLog {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

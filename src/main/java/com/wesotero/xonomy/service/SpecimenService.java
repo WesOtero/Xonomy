@@ -13,12 +13,7 @@ import com.wesotero.xonomy.repository.SpecimenRepository;
 public class SpecimenService {
 
 	@Autowired
-	private final SpecimenRepository specimenRepository;
-
-	public SpecimenService(SpecimenRepository specimenRepository) {
-		super();
-		this.specimenRepository = specimenRepository;
-	}
+	private SpecimenRepository specimenRepository;
 	
 	// CREATE
 	public Specimen addSpecimen(Specimen specimen) {

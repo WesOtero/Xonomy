@@ -32,7 +32,6 @@ export class SpecimenFormComponent implements OnInit {
     this.specimen = new Specimen();
   }
 
-
   onSubmit() {
     this.uploadImage();
     this.specimenService.saveSpecimen(this.specimen).subscribe(result => {
@@ -53,12 +52,14 @@ export class SpecimenFormComponent implements OnInit {
   }
 
   uploadImage() {
+    debugger;
     const id: number = parseInt(this.specimen.species.id);
     const index: number = this.speciesList.findIndex(i => parseInt(i.id) == id);
     const speciesName: string = this.speciesList[index].name;
     const specimenName: string = this.specimen.name;
     if (this.selectedFile != null) {
-      this.specimen.setImagePath(speciesName);
+      this.specimen.image.directory = speciesName;
+      this.specimen.image.name = this.specimen.name;
       this.imageUploadService.uploadImage(this.selectedFile, speciesName, specimenName);
     }
   }

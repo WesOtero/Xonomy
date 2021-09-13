@@ -1,3 +1,9 @@
 .btn {
     margin-bottom: 20px;
 }
+
+.btn-link {
+    padding: 0;
+    border: none;
+    background: none;
+}

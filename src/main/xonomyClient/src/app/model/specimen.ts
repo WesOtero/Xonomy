@@ -10,9 +10,4 @@ export class Specimen {
     timestamp: Date = new Date();
     species: Species = new Species();
     image: Image = new Image();
-
-    setImagePath(speciesName: string) {
-        this.image.directory = `${speciesName}`;
-        this.image.name = `${this.name}.jpg`;
-    }
 }

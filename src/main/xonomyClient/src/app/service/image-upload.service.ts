@@ -7,11 +7,12 @@ import { environment } from 'src/environments/environment';
 })
 export class ImageUploadService {
 
-  private apiServerUrl = environment.apiBaseUrl + "/upload";
+  private apiServerUrl = environment.apiBaseUrl + "/file";
 
   constructor(private http: HttpClient) { }
 
   public uploadImage( selectedFile: null, speciesName: string, specimenName: string) {
+    debugger;
     const formData = new FormData();
     if (selectedFile != null) {
       // @ts-ignore: Object is possibly 'null'.

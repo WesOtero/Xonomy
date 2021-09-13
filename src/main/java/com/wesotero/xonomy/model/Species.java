@@ -21,6 +21,7 @@ public class Species {
 	private String subfamily;
 	private String family;
 	private String suborder;
+	@Column(name="`order`")
 	private String order;
 	private String clazz;
 	private String phylum;

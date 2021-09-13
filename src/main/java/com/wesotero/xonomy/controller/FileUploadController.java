@@ -6,12 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.wesotero.xonomy.model.Specimen;
 import com.wesotero.xonomy.service.StorageService;
 
 @Controller
@@ -19,13 +17,8 @@ import com.wesotero.xonomy.service.StorageService;
 @CrossOrigin(origins = "http://localhost:4200/")
 public class FileUploadController {
 	
-	private final StorageService storageService;
-	
 	@Autowired
-	public FileUploadController(StorageService storageService) {
-		super();
-		this.storageService = storageService;
-	}
+	private StorageService storageService;
 
 	@PostMapping("/upload")
 	public ResponseEntity<Void> handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam("species") String species,  @RequestParam("specimenName") String specimenName) {

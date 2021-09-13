@@ -30,10 +30,10 @@ public class Image {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPath() {
+	public String getDirectory() {
 		return directory;
 	}
-	public void setPath(String directory) {
+	public void setDirectory(String directory) {
 		this.directory = directory;
 	}
 	
